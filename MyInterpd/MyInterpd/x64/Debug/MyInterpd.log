@@ -1,0 +1,5 @@
+﻿  htpp.cpp
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(28,19): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(91,19): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(101,38): warning C4312: “类型强制转换”: 从“int”转换到更大的“void *”
+  MyInterpd.vcxproj -> D:\MyProgram\CPlusPlus\MyInterpd\x64\Debug\MyInterpd.exe
