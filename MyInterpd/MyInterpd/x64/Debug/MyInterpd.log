@@ -1,9 +1,22 @@
 ﻿  htpp.cpp
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(33,19): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(100,12): warning C4305: “=”: 从“int”到“char”截断
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(100,8): warning C4309: “=”: 截断常量值
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(115,13): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(128,6): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(162,19): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
-D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(172,38): warning C4312: “类型强制转换”: 从“int”转换到更大的“void *”
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(36,19): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(103,12): warning C4305: “=”: 从“int”到“char”截断
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(103,8): warning C4309: “=”: 截断常量值
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(125,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(128,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(131,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(134,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(124,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(127,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(130,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(133,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(141,62): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(162,19): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(181,13): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(194,6): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(219,2): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(222,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(239,4): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(263,19): warning C4244: “初始化”: 从“SOCKET”转换到“int”，可能丢失数据
+D:\MyProgram\CPlusPlus\MyInterpd\MyInterpd\htpp.cpp(273,38): warning C4312: “类型强制转换”: 从“int”转换到更大的“void *”
   MyInterpd.vcxproj -> D:\MyProgram\CPlusPlus\MyInterpd\x64\Debug\MyInterpd.exe

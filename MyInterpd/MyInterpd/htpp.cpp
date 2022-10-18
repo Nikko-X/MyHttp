@@ -3,6 +3,9 @@
 // 网络通信需要包含的头文件、以及加载的库文件
 #include <WinSock2.h>
 #pragma comment(lib, "WS2_32.lib")
+// 访问文件类型头文件
+#include <sys/types.h>
+#include<sys/stat.h>
 
 // 定义一个宏(相比与定义函数，宏节省开销)
 // 可打印出当前函数，所在行，以及需打印的字符
@@ -109,6 +112,69 @@ void unimplement(int client) {
 
 }
 
+void not_found(int client) {
+	// 发送网页不存在
+
+}
+
+void headinf(int client) {
+	// 发送响应包的头信息
+	char buff[1024];
+
+	strcpy(buff, "HTTP/1.1 200 OK\r\n");
+	send(client, buff, strlen(buff), 0);
+
+	strcpy(buff, "Server: XHHttpd/0.1\r\n");
+	send(client, buff, strlen(buff), 0);
+
+	strcpy(buff, "Content-type:text/html\n");
+	send(client, buff, strlen(buff), 0);
+
+	strcpy(buff, "\r\n");
+	send(client, buff, strlen(buff), 0);
+}
+void cat(int client, FILE* resource) {
+	// 发送实际内容 一次发4k
+	char buff[4096];
+	int count = 0;
+	while (1) {
+		int ret = fread(buff, sizeof(char), sizeof(buff), resource);	// 一次读一个字节，读取buff个单元
+		if (ret <= 0) {
+			break;
+		}
+		send(client, buff, ret, 0);
+		count += ret;
+	}
+	printf("一共发送%d字节给浏览器\n", count);
+
+}
+
+void server_file(int client, const char* file_name) {
+	// 发送资源给客户端
+	char numchars = 1;
+	char buff[1024];
+	// 把请求数据包的剩余数据行读完
+	while (numchars > 0 && strcmp(buff, "\n")) {
+		numchars = get_line(client, buff, sizeof(buff));
+		PRINT(buff);
+	}
+
+	FILE* resource = fopen(file_name, "r");
+	if (resource == NULL) {
+		not_found(client);
+	}
+	else {
+		// 正式发送
+		// 发送文件头信息
+		headinf(client);	
+
+		// 发送请求的资源信息
+		cat(client, resource);
+		printf("资源发送完毕！");
+	}
+	fclose(resource);
+}
+
 //处理用户请求的线程函数
 DWORD WINAPI accept_request(LPVOID arg) {
 	char buff[1024];
@@ -147,7 +213,37 @@ DWORD WINAPI accept_request(LPVOID arg) {
 	// www.xh.com
 	//127.0.0.1 这些是根目录
 	// url	/
-	// htdocs/
+	// htdocs/index.html    在没有指定目录的情况下默认访问该目录
+
+	char path[512] = "";
+	sprintf(path, "htdocs%s", url);
+	// 判断是不是没有指定路径是就拼接上默认路径
+	if (path[strlen(path) - 1] == '/') {
+		strcat(path, "index.html");
+	}
+	PRINT(path);
+
+	struct stat status;
+
+	stat(path, &status);	// 判断访问的是目录还是文件
+	if (stat(path, &status) == -1) {
+		// 发生错误，还是要将请求包剩余数据读完，利用最后一行是空行来判断
+		while (numchars> 0 && strcmp(buff, "\n")){
+			numchars = get_line(client, buff, sizeof(buff));
+		}
+		not_found(client);
+	}
+	else {
+		if ((status.st_mode & S_IFMT) == S_IFDIR) {
+			// 判断是一个目录，就拼接为默认路径
+			strcat(path, "/index.html");
+		}
+
+		server_file(client, path);	// 静态网页实现
+
+	}
+	// 关闭套接字
+	closesocket(client);
 
 	return 0;
 }
