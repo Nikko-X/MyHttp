@@ -151,15 +151,22 @@ void cat(int client, FILE* resource) {
 
 void server_file(int client, const char* file_name) {
 	// 发送资源给客户端
-	char numchars = 1;
+	int numchars = 1;
 	char buff[1024];
+
 	// 把请求数据包的剩余数据行读完
 	while (numchars > 0 && strcmp(buff, "\n")) {
 		numchars = get_line(client, buff, sizeof(buff));
 		PRINT(buff);
 	}
 
-	FILE* resource = fopen(file_name, "r");
+	FILE* resource = NULL;
+	if (strcmp(file_name, "htdocs/index.html") == 0) {
+		resource = fopen(file_name, "r");
+	}
+	else {
+		resource = fopen(file_name, "rb");
+	}
 	if (resource == NULL) {
 		not_found(client);
 	}
@@ -167,7 +174,7 @@ void server_file(int client, const char* file_name) {
 		// 正式发送
 		// 发送文件头信息
 		headinf(client);	
-
+		
 		// 发送请求的资源信息
 		cat(client, resource);
 		printf("资源发送完毕！");
